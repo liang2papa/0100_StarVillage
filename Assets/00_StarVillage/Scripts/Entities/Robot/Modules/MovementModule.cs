@@ -17,10 +17,14 @@ public class MovementModule : MonoBehaviour
     [Header("GroundChecker")]
     [SerializeField] private Transform m_groundChecker; // 바닥 체크용 트랜스폼, 발판에 붙어있음
 
-    [Header("Slope")]
+    [Header("Slope Settings")]
     private RaycastHit m_slopeHit;
     private const float SRayDistance = 3f; // 슬로프 체크를 위한 레이의 길이
     private const float SMaxSlopeAngle = 45f; // 등반할 수 있는 최대각도
+
+    [Header("Wall Settings")]
+    [SerializeField] private LayerMask m_wallLayer; // Wall 레이어 (없으면 Default나 Obstacle)
+    [SerializeField] private float m_wallCheckDist = 0.7f; // 캡슐 반지름 + 약간
 
     [SerializeField] private bool isGrounded = false;
 
@@ -34,44 +38,49 @@ public class MovementModule : MonoBehaviour
     public void MovementFixed(Vector2 inputDir)
     {
         // 1. 입력이 없으면 정지
-        // 2. 바닥에 서있으면 그냥 멈추고, 아니면 낙하속도를 유지
         if (inputDir.sqrMagnitude < 0.01f)
         {
-            if (CheckIsGrounded())
-            {
-                m_rb.linearVelocity = Vector3.zero;
-            }
-            else
-            {
-                m_rb.linearVelocity = new Vector3(0, m_rb.linearVelocity.y, 0);
-            }
+            if (CheckIsGrounded()) m_rb.linearVelocity = Vector3.zero;
+            else m_rb.linearVelocity = new Vector3(0, m_rb.linearVelocity.y, 0);
 
             m_rb.angularVelocity = Vector3.zero;
             return;
         }
-        // 2. 카메라 기준 방향 계산
+
+        // 2. 방향 계산
         Vector3 camForward = m_cameraTransform.forward;
         Vector3 camRight = m_cameraTransform.right;
-        camForward.y = 0; 
-        camRight.y = 0;
-        camForward.Normalize(); 
-        camRight.Normalize();
+        camForward.y = 0; camRight.y = 0;
+        camForward.Normalize(); camRight.Normalize();
 
-        Vector3 planarMoveDir = (camForward * inputDir.y + camRight * inputDir.x).normalized;
+        Vector3 moveDir = (camForward * inputDir.y + camRight * inputDir.x).normalized;
 
-        // 4. 속도 적용
-        var isSlope = IsOnSlope();
-        if (isSlope)
+        // ---------------------------------------------------------
+        // [추가] 벽 타기 (Wall Sliding) 로직
+        // ---------------------------------------------------------
+        // 로봇 허리춤에서 진행 방향으로 레이를 쏴서 벽이 있는지 확인
+        Vector3 rayOrigin = transform.position + Vector3.up * 0.5f;
+
+        if (Physics.Raycast(rayOrigin, moveDir, out RaycastHit wallHit, m_wallCheckDist))
         {
-            // m_rb.linearVelocity = new Vector3(AdjustDirectionToSlope(planarMoveDir).x * m_robotData.MovementSpeed, m_rb.linearVelocity.y, AdjustDirectionToSlope(planarMoveDir).z * m_robotData.MovementSpeed);
-            m_rb.linearVelocity = AdjustDirectionToSlope(planarMoveDir) * m_robotData.MovementSpeed;
+            // 벽이 있다면, 이동 방향을 벽면의 기울기(Normal)에 맞춰서 미끄러지게 꺾어줌
+            // ProjectOnPlane: 벡터를 평면에 투영 (벽을 뚫으려는 힘을 제거)
+            moveDir = Vector3.ProjectOnPlane(moveDir, wallHit.normal).normalized;
+        }
+        // ---------------------------------------------------------
+
+        // 3. 속도 적용 (경사면 로직과 결합)
+        if (IsOnSlope())
+        {
+            m_rb.linearVelocity = AdjustDirectionToSlope(moveDir) * m_robotData.MovementSpeed;
         }
         else
         {
-            m_rb.linearVelocity = new Vector3(planarMoveDir.x * m_robotData.MovementSpeed, m_rb.linearVelocity.y, planarMoveDir.z * m_robotData.MovementSpeed);
-
+            m_rb.linearVelocity = new Vector3(moveDir.x * m_robotData.MovementSpeed, m_rb.linearVelocity.y, moveDir.z * m_robotData.MovementSpeed);
         }
 
+        // 4. [중요] 물리 회전력 완전 제거
+        m_rb.angularVelocity = Vector3.zero;
     }
     public void RotationFixed(Vector2 lookInput, Vector2 mousePos, EControlScheme controlScheme)
     {

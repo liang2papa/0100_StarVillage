@@ -24,7 +24,6 @@ public class InputService
         if (IsPadMoved())
             nextScheme = EControlScheme.Gamepad;
 
-        Debug.Log(CurrentControlScheme);
         // 상태가 실제 바뀔 때만 이벤트 발생
         if (nextScheme != CurrentControlScheme)
         {
