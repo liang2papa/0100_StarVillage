@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// [Lv 4] 이동 모듈
+/// [Lv 4] 이동 모듈, 카메라를 기준으로 움직임 방향 계산
 /// </summary>
 public class MovementModule : MonoBehaviour
 {
