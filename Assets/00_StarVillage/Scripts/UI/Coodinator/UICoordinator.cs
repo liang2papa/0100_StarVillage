@@ -2,7 +2,7 @@ using UnityEngine;
 /// [Lv 3] 객체의 행동 조율
 /// 1. 각 UI Viewer의 행동을 지시
 /// </summary>
-public class UICoodinator : MonoBehaviour
+public class UICoordinator : MonoBehaviour
 {
     /// <summary>
     /// 추후 ItemViewer로 받아서 표시하도록 처리

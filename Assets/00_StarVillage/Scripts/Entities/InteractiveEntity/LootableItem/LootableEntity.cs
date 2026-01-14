@@ -13,7 +13,7 @@ public abstract class LootableEntity : InteractiveEntity
     [SerializeField] protected bool m_isGenerated = false; // 드랍 아이템이 생성되었는지 여부
     [SerializeField] protected float m_openDelay;
 
-    [SerializeField] protected UICoodinator m_lootUI; // 추후 인터페이스로 참조하도록 변경
+    [SerializeField] protected UICoordinator m_lootUI; // 추후 인터페이스로 참조하도록 변경
 
     // 아이템 생성 로직 (최초 1회 실행)
     protected virtual void GenerateLoot()

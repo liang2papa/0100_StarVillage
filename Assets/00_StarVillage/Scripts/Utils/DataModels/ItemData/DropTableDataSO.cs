@@ -7,4 +7,6 @@ public class DropTableDataSO : SerializedScriptableObject
 {
     public List<InventoryItem> DropTable = new();
     
+
+
 }

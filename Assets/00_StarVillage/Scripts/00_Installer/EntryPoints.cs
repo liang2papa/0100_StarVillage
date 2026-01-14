@@ -19,6 +19,7 @@ public class EntryPoints : MonoBehaviour
     [Header("SceneRefs")]
     [SerializeField] private GameDirector m_director;
     [SerializeField] private RobotCoordinator m_robot;
+    [SerializeField] private UICoordinator m_uiCoordinator;
     [SerializeField] private Camera m_camera;
 
     [Header("DataRefs")]
@@ -32,9 +33,7 @@ public class EntryPoints : MonoBehaviour
         var inputService = new InputService(m_director);
         // var dataService = new DataService(); // 아직 세부 내용이 없음
 
-        m_robot.InitClass(inputService, m_robotData, m_camera.transform);
-
-        
+        m_robot.InitClass(inputService, m_robotData, m_camera.transform, m_uiCoordinator);
     }
     private void Start()
     {

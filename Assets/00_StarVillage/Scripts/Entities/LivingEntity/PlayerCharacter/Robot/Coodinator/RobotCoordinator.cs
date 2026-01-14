@@ -10,6 +10,7 @@ public class RobotCoordinator : MonoBehaviour
     [Header("Robot Refs")]
     [SerializeField] private Rigidbody m_rb; 
     [SerializeField] private MovementModule m_movementModule;
+    [SerializeField] private UICoordinator m_uiCoordinator;
 
     [Header("Service")]
     private InputService m_inputService;
@@ -20,9 +21,10 @@ public class RobotCoordinator : MonoBehaviour
     [SerializeField] private Vector2 m_currentMousePos;
 
     private bool m_isInitialized = false;
-    public void InitClass(InputService inputService, RobotDataSO data, Transform cameraTransform)
+    public void InitClass(InputService inputService, RobotDataSO data, Transform cameraTransform, UICoordinator uiCoordi)
     {
         m_inputService = inputService;
+        m_uiCoordinator = uiCoordi;
         m_isInitialized = true;
         m_movementModule.InitClass(m_rb, data, cameraTransform);
     }
