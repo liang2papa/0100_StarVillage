@@ -10,10 +10,15 @@ public abstract class LootableEntity : InteractiveEntity
     [SerializeField] protected DropTableDataSO m_dropTable; // 드랍 테이블
     [SerializeField] protected List<InventoryItem> m_contents = new(); // 실제 들어있는 아이템들
 
+
+    [Header("외부 참조")]
+    [SerializeField] protected RobotCoordinator m_robot; // 추후 인터페이스로 참조하도록 변경
+
+    [Header("리소스의 상태")]
     [SerializeField] protected bool m_isGenerated = false; // 드랍 아이템이 생성되었는지 여부
     [SerializeField] protected float m_openDelay;
-
-    [SerializeField] protected UICoordinator m_lootUI; // 추후 인터페이스로 참조하도록 변경
+    
+    [SerializeField] protected bool m_isChecking = false; //  열어봤을 경우 주웠든 안주웠든 true
 
     // 아이템 생성 로직 (최초 1회 실행)
     protected virtual void GenerateLoot()
@@ -21,6 +26,7 @@ public abstract class LootableEntity : InteractiveEntity
         if (m_isGenerated) return;
         m_contents = m_dropTable.DropTable;
         m_isGenerated = true;
+        m_isChecking = true;
     }
 
     // 공통 기능: 루팅 UI 열기
@@ -31,12 +37,12 @@ public abstract class LootableEntity : InteractiveEntity
         // 빈 껍데기면 UI 안 열고 알림만 띄울 수도 있음
         if (m_contents.Count == 0)
         {
-            m_lootUI.DisplayMessage();
+            m_robot.DisplayMessage();
             return;
         }
         else
         {
-            m_lootUI.DisplayItems();
+            m_robot.DisplayItems(this, m_contents);
         }
 
     }

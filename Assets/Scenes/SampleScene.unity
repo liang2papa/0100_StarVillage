@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotCoordinator
   m_rb: {fileID: 140068734}
   m_movementModule: {fileID: 140068732}
+  m_interactionModule: {fileID: 0}
   m_uiCoordinator: {fileID: 0}
   m_currentMovementInput: {x: 0, y: 0}
   m_currentLookInput: {x: 0, y: 0}
@@ -1183,7 +1184,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5086214993460798845, guid: 2f1f1a99a03849746adb662fa05676c2, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1816768424}
   m_SourcePrefab: {fileID: 100100000, guid: 2f1f1a99a03849746adb662fa05676c2, type: 3}
 --- !u!1 &670951892
 GameObject:
@@ -2658,6 +2662,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1816768418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5086214993460798845, guid: 2f1f1a99a03849746adb662fa05676c2, type: 3}
+  m_PrefabInstance: {fileID: 594121507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1816768424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816768418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424f64f1404ae0844921fa95b920bf46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceEntity
+  m_dropTable: {fileID: 11400000, guid: 36c2ed83e451b5d4e86ea7e54c8f331f, type: 2}
+  m_contents: []
+  m_robot: {fileID: 0}
+  m_isGenerated: 0
+  m_openDelay: 0
+  m_isChecking: 0
+  m_resourceData: {fileID: 11400000, guid: 2da36d22724d0af4fa32490810e0637f, type: 2}
+  m_currentHP: 0
+  m_validTool: 
+  m_isDepleted: 0
 --- !u!1 &1922120094
 GameObject:
   m_ObjectHideFlags: 0

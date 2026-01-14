@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd9667439bf4a04496815ad647f922d, type: 3}
   m_Name: MineralData
   m_EditorClassIdentifier: Assembly-CSharp::ResourceDataSO
-  maxHP: 0
+  MaxHP: 0
   ValidToolTypes: 00000000
+  DamageMultiplier: 2

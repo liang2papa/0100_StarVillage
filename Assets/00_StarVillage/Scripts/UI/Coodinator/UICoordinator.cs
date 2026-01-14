@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 /// [Lv 3] 객체의 행동 조율
 /// 1. 각 UI Viewer의 행동을 지시
@@ -7,7 +8,7 @@ public class UICoordinator : MonoBehaviour
     /// <summary>
     /// 추후 ItemViewer로 받아서 표시하도록 처리
     /// </summary>
-    public void DisplayItems()
+    public void DisplayItems(LootableEntity target, List<InventoryItem> items)
     {
         Debug.Log("아이템 획득");
     }

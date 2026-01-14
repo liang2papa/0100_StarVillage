@@ -12,3 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3542571d0e36043bfd49be7453f816, type: 3}
   m_Name: MineralTableData
   m_EditorClassIdentifier: Assembly-CSharp::MineralTableDataSO
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DropTable:
+  - Data: {fileID: 0}
+    Amount: 0
+    CurerntDurability: 0
