@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// [Lv 1] 입력 담당
+/// </summary>
 public class InputService
 {
     private readonly GameDirector m_director;
@@ -30,6 +33,15 @@ public class InputService
             CurrentControlScheme = nextScheme;
             OnControlSchemeChanged?.Invoke(CurrentControlScheme);
         }
+    }
+
+
+    public bool GetInteractionButton()
+    {
+        if (m_director.CurrentState != EGameState.Playing)
+            return false;
+
+        return m_inputActions.Player.Interact.WasPressedThisFrame();
     }
     public Vector2 GetMoveInput()
     {
@@ -64,7 +76,12 @@ public class InputService
             return false;
         Vector2 rightStick = Gamepad.current.rightStick.ReadValue();
         Vector2 leftStick = Gamepad.current.leftStick.ReadValue();
-        return rightStick.sqrMagnitude > 0.01f || leftStick.sqrMagnitude > 0.01f;
+
+        // [추가] 패드의 남쪽 버튼(A/X)이나 서쪽 버튼(X/Y) 등을 눌러도 패드 사용으로 간주
+        bool isButtonPressed = Gamepad.current.buttonSouth.wasPressedThisFrame ||
+                               Gamepad.current.buttonWest.wasPressedThisFrame;
+
+        return rightStick.sqrMagnitude > 0.01f || leftStick.sqrMagnitude > 0.01f || isButtonPressed;
     }
     ~InputService()
     {

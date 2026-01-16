@@ -33,7 +33,9 @@ public class EntryPoints : MonoBehaviour
         var inputService = new InputService(m_director);
         // var dataService = new DataService(); // 아직 세부 내용이 없음
 
-        m_robot.InitClass(inputService, m_robotData, m_camera.transform, m_uiCoordinator);
+        var lootService = new LootService(m_uiCoordinator);
+
+        m_robot.InitClass(inputService, m_robotData, m_camera.transform, lootService);
     }
     private void Start()
     {

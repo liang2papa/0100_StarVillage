@@ -6,7 +6,7 @@ using UnityEngine;
 // 필드 관리자 또는 마을 관리자가 상속받아 사용
 public abstract class GameDirector : MonoBehaviour
 {
-    public EGameState CurrentState { get; private set; }
+    [field: SerializeField] public EGameState CurrentState { get; private set; }
     
     public event Action<EGameState> OnStateChanged;
 

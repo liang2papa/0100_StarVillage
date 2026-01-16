@@ -6,17 +6,21 @@ using UnityEngine;
 public class UICoordinator : MonoBehaviour
 {
     /// <summary>
-    /// 추후 ItemViewer로 받아서 표시하도록 처리
+    /// 추후 ItemViewer에서 표시하도록 처리, Interface를 활용 예정
     /// </summary>
     public void DisplayItems(LootableEntity target, List<InventoryItem> items)
     {
-        Debug.Log("아이템 획득");
+        Debug.Log("아이템 표시");
     }
     /// <summary>
-    /// 추후 ItemViewer로 받아서 표시하도록 처리
+    /// 추후 ItemViewer에서 표시하도록 처리, Interface를 활용 예정
     /// </summary>
     public void DisplayMessage()
     {
         Debug.Log("아이템이 없어요");
+    }
+    public void CloseLootUI()
+    {
+        Debug.Log("루팅 UI 닫기");
     }
 }
