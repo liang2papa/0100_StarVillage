@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class NPCCoordinator : MonoBehaviour, IInteractable
 {
-    public string EntityName { get; private set; }
-    public bool IsInteractable { get; private set; }
+    [field: SerializeField] public string EntityName { get; private set; }
+    [field: SerializeField] public bool IsInteractable { get; private set; }
+    [field: SerializeField] public string InteractionPrompt { get; private set; } = "<color=yellow>[E]</color>";
 
     public void OnInteract(Transform interactor)
     {

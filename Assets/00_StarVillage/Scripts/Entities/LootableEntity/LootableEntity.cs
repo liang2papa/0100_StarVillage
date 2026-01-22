@@ -8,8 +8,12 @@ public abstract class LootableEntity : MonoBehaviour, IInteractable
 {
     [Header("엔티티 이름")]
     [field: SerializeField] public string EntityName { get; protected set; }
+
     [Header("상호작용 가능 여부")]
     [field: SerializeField] public bool IsInteractable { get; protected set; } = true;
+
+    [Header("상호작용 시 텍스트")]
+    [field: SerializeField] public string InteractionPrompt { get; protected set; } = "Open <color=yellow>[E]</color>";
 
     [Header("컨테이너를 열어보았는지 여부, 추후 UI 반영 예정")]
     [field: SerializeField] public bool IsChecked { get; protected set; } //  열어봤을 경우 주웠든 안주웠든 true
@@ -77,7 +81,5 @@ public abstract class LootableEntity : MonoBehaviour, IInteractable
 
             Gizmos.DrawWireCube(transform.position, transform.lossyScale);
     }
-
-
 
 }

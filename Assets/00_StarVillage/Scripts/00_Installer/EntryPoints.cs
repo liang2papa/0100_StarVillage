@@ -35,7 +35,8 @@ public class EntryPoints : MonoBehaviour
 
         var lootService = new LootService(m_uiCoordinator);
 
-        m_robot.InitClass(inputService, m_robotData, m_camera.transform, lootService);
+        m_robot.InitClass(inputService, lootService, m_robotData, m_camera, m_uiCoordinator);
+        
     }
     private void Start()
     {

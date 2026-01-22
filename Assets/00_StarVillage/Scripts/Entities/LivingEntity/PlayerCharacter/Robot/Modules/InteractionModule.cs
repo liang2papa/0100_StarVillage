@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// [Lv 4] 실행 모듈
+/// 일정 거리 안에 들어왔을 때 상호작용 가능한 대상 탐색
 /// </summary>
 public class InteractionModule : MonoBehaviour
 {
@@ -20,11 +21,10 @@ public class InteractionModule : MonoBehaviour
     private void Update()
     {
         // [추가] 매 프레임 버퍼를 깨끗하게 비움 (잔여 데이터 제거)
-        // Array.Clear(배열, 시작인덱스, 길이)
         Array.Clear(m_colliderBuffer, 0, m_colliderBuffer.Length);
 
         // 박스 사이즈 계산 (필요하다면 캐싱 고려 가능)
-        Vector3 boxSize = transform.localScale * 3f;
+        Vector3 boxSize = transform.lossyScale;
 
         // [수정 2] 반환값(hitCount)을 받아서 그만큼만 반복
         int hitCount = Physics.OverlapBoxNonAlloc(
@@ -100,8 +100,8 @@ public class InteractionModule : MonoBehaviour
     private void OnDrawGizmos()
     {
         // Vector3 boxSize = new Vector3(transform.lossyScale.x * 3, transform.lossyScale.y * 3, transform.lossyScale.z * 3);
-        Vector3 boxSize = transform.localScale * 3;
-        Gizmos.color = Color.azure;
+        Vector3 boxSize = transform.lossyScale;
+        Gizmos.color = Color.blueViolet;
         Gizmos.DrawWireCube(m_entityChecker.transform.position, boxSize);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,15 @@ using UnityEngine;
 public class LootService
 {
     [SerializeField] private UICoordinator m_uiCoordinator;
+
+    // UICoordinator와의 상호작용 담당
+    // 루팅 시작
+    public event Action<LootableEntity> OnLootingStart;
+    // 루팅 종료
+    public event Action OnLootingEnd;
+
+    // 현재 루팅 중인 대상
+    public LootableEntity CurrentLootTarget { get; private set; }
 
     public LootService(UICoordinator uiCoordinator)
     {

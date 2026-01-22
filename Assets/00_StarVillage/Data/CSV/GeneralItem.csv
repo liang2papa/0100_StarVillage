@@ -1,0 +1,13 @@
+﻿Int, (Enum),(string),(string),int,Icon/GeneralItem/, (int), (int),"(무게, float)",(bool),(최대 사용 횟수) (int), (bool), (int),(int),(int),(int),(int),(int),(int), (int),(int)
+UniqueID,Type,Name,Desc,Tier,Icon,Price,MaxStack,Weight,IsConsumable,MaxUsage,Decomposable,DecomposeID_1,Decompose_1_MinQuantity,Decompose_1_MaxQuantity,DecomposeID_2,Decompose_2_MinQuantity,Decompose_2_MaxQuantity,DecomposeID_3,Decompose_3_MinQuantity,Decompose_3_MaxQuantity
+60001,General,광물,분해하면 다양한 것들이 나올 수 있다.,1,Icon/GeneralItem/60001,50,999,0.1,FALSE,0,TRUE,60010,1,2,60011,,,,,
+60010,General,고철,흔한 고철이다,1,Icon/GeneralItem/60010,10,999,0.1,FALSE,0,FALSE,,,,,,,,,
+60011,General,바위,쓸 데 없는 바위,1,Icon/GeneralItem/60011,1,999,0.1,FALSE,0,FALSE,,,,,,,,,
+60012,General,루비,빨간 것은 항상 3배,2,Icon/GeneralItem/60012,30,999,0.1,FALSE,0,FALSE,,,,,,,,,
+60013,General,사파이어,파란 것은 별 것 없다,2,Icon/GeneralItem/60013,20,999,0.1,FALSE,0,FALSE,,,,,,,,,
+60014,General,다이아몬드,매우 튼튼하다,2,Icon/GeneralItem/60014,100,999,0.1,FALSE,0,FALSE,,,,,,,,,
+61000,General,티타늄,다양한 활용성을 가진 금속,3,Icon/GeneralItem/61000,100,999,0.2,FALSE,0,TRUE,,,,,,,,,
+60100,General,볼트,어디서든 사용되는 나사,2,Icon/GeneralItem/60100,10,999,0.1,FALSE,0,TRUE,60010,1,1,,,,,,
+60101,General,너트,볼트 가는데에는 너트도 가야 한다,2,Icon/GeneralItem/60101,10,999,0.1,FALSE,0,TRUE,60010,1,1,,,,,,
+60003,General,수리키트,장비를 수리한다,2,Icon/GeneralItem/60003,500,10,0.2,TRUE,1,TRUE,60010,1,1,,,,,,
+40001,KeyItem,벙커 열쇠,벙커를 연다,2,Icon/GeneralItem/40001,0,1,0.1,TRUE,1,TRUE,60010,1,1,,,,,,

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a27ab1236f7e4144b11d6008b3570aa, type: 3}
+  m_Name: Item_60013
+  m_EditorClassIdentifier: Assembly-CSharp::GeneralItemDataSO
+  UniqueID: 60013
+  ItemType: 0
+  ItemName: "\uC0AC\uD30C\uC774\uC5B4"
+  Description: "\uD30C\uB780 \uAC83\uC740 \uBCC4 \uAC83 \uC5C6\uB2E4"
+  Icon: {fileID: 0}
+  IconPath: Icon/GeneralItem/60013
+  Tier: 2
+  IsPurchasable: 0
+  Price: 20
+  IsStackable: 0
+  MaxStackSize: 999
+  IsKeyItem: 0
+  KeyItemID: 0
+  Weight: 0.1
+  IsDecomposable: 0
+  DecomposeList: []
+  IsConsumable: 0
+  MaxUsageCount: 0

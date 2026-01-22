@@ -1,0 +1,5 @@
+﻿Int, (Enum),(string),(string),int,Icon/Equipment/,int, (int)," (무게, float)",(Enum), (float), (bool), (int),(int),(int),(int),(int),(int),(int), (int),(int),,,,,,
+UniqueID,Type,Name,Desc,Tier,Icon,Price,MaxStack,Weight,EquipSlot ,MaxDurability,Decomposable,DecomposeID_1,Decompose_1_MinQuantity,Decompose_1_MaxQuantity,DecomposeID_2,Decompose_2_MinQuantity,Decompose_2_MaxQuantity,DecomposeID_3,Decompose_3_MinQuantity,Decompose_3_MaxQuantity,Stat_MinAtk,Stat_MaxAtk,Stat_AttackSpd,Stat_MinDefence,Stat_MaxDefence,Stat_BackpackSize
+50001,Equipment,구형 클로,"채집용 집게, 어디서든 구할 수 있다.",1,Icon/Equipment/50001,2000,1,30,RightHand,100,TRUE,60100,1,2,60101,0,2,,,,10,20,1,0,0,0
+50002,Equipment,티타늄 헬멧,단단한 헬멧,3,Icon/Equipment/50002,5000,1,100,Head,100,TRUE,60100,0,1,60101,0,1,,,,0,0,0,20,50,0
+50005,Equipment,작은 가방,모아서 담자,1,Icon/Equipment/50005,5000,1,1,Backpack,100,FALSE,,,,,,,,,,0,0,0,0,0,10

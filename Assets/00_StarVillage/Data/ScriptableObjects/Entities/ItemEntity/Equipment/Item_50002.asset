@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e1936584316504e85af115eedd378d, type: 3}
+  m_Name: Item_50002
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  UniqueID: 50002
+  ItemType: 1
+  ItemName: "\uD2F0\uD0C0\uB284 \uD5EC\uBA67"
+  Description: "\uB2E8\uB2E8\uD55C \uD5EC\uBA67"
+  Icon: {fileID: 0}
+  IconPath: Icon/Equipment/50002
+  Tier: 3
+  IsPurchasable: 0
+  Price: 5000
+  IsStackable: 0
+  MaxStackSize: 1
+  IsKeyItem: 0
+  KeyItemID: 0
+  Weight: 100
+  IsDecomposable: 1
+  DecomposeList:
+  - ResultItemID: 60100
+    MinCount: 0
+    MaxCount: 1
+  - ResultItemID: 60101
+    MinCount: 0
+    MaxCount: 1
+  EquipType: 0
+  MaxDurability: 100
+  MinAtk: 0
+  MaxAtk: 0
+  AttackSpeed: 0
+  MinDef: 20
+  MaxDef: 50
+  BackpackSize: 0
